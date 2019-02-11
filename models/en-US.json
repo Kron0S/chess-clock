@@ -1,0 +1,132 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "chess clock",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "SetTheNumberOfPlayers",
+                    "slots": [
+                        {
+                            "name": "countPlayers",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "us {countPlayers}",
+                        "{countPlayers} players",
+                        "{countPlayers}",
+                        "for {countPlayers} players"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "StartTheGame",
+                    "slots": [],
+                    "samples": [
+                        "Start the game"
+                    ]
+                },
+                {
+                    "name": "EndOfTurn",
+                    "slots": [],
+                    "samples": [
+                        "End of turn"
+                    ]
+                },
+                {
+                    "name": "EndOfTheGame",
+                    "slots": [],
+                    "samples": [
+                        "End of the game"
+                    ]
+                },
+                {
+                    "name": "NewGameIntent",
+                    "slots": [],
+                    "samples": [
+                        "let's play a game",
+                        "start over"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "SetTheNumberOfPlayers",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "countPlayers",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1128890084540.650121883511"
+                            },
+                            "validations": [
+                                {
+                                    "type": "isInSet",
+                                    "prompt": "Slot.Validation.1128890084540.650121883511.133358200495",
+                                    "values": [
+                                        "2",
+                                        "3",
+                                        "4",
+                                        "5",
+                                        "6",
+                                        "7",
+                                        "8"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "StartTheGame",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": []
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Slot.Validation.1128890084540.650121883511.133358200495",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "From two to eight players"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1128890084540.650121883511",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "How many players will there be?"
+                    }
+                ]
+            }
+        ]
+    }
+}
